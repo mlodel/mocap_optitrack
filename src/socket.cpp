@@ -36,23 +36,23 @@ UdpMulticastSocket::UdpMulticastSocket( const int local_port, const std::string 
     switch( errno )
     {
       case EBADF:
-	error << "EBADF";
-	break;
+  error << "EBADF";
+  break;
       case EFAULT:
-	error << "EFAULT";
-	break;
+  error << "EFAULT";
+  break;
       case EINVAL:
-	error << "EINVAL";
-	break;
+  error << "EINVAL";
+  break;
       case ENOPROTOOPT:
-	error << "ENOPROTOOPT";
-	break;
+  error << "ENOPROTOOPT";
+  break;
       case ENOTSOCK:
-	error << "ENOTSOCK";
-	break;
+  error << "ENOTSOCK";
+  break;
       default:
-	error << "unknown error";
-	break;
+  error << "unknown error";
+  break;
     }
     throw SocketException( error.str().c_str() );    
   }
@@ -88,23 +88,23 @@ UdpMulticastSocket::UdpMulticastSocket( const int local_port, const std::string 
     switch( errno )
     {
       case EBADF:
-	error << "EBADF";
-	break;
+  error << "EBADF";
+  break;
       case EFAULT:
-	error << "EFAULT";
-	break;
+  error << "EFAULT";
+  break;
       case EINVAL:
-	error << "EINVAL";
-	break;
+  error << "EINVAL";
+  break;
       case ENOPROTOOPT:
-	error << "ENOPROTOOPT";
-	break;
+  error << "ENOPROTOOPT";
+  break;
       case ENOTSOCK:
-	error << "ENOTSOCK";
-	break;
+  error << "ENOTSOCK";
+  break;
       default:
-	error << "unknown error";
-	break;
+  error << "unknown error";
+  break;
     }
     throw SocketException( error.str().c_str() );    
   }
@@ -141,7 +141,7 @@ int UdpMulticastSocket::recv()
     (socklen_t*)&addr_len);
 
   if( status > 0 )
-    ROS_INFO( "%4i bytes received from %s:%i", status, inet_ntoa( remote_addr.sin_addr ), ntohs( remote_addr.sin_port ) );
+    ROS_DEBUG( "%4i bytes received from %s:%i", status, inet_ntoa( remote_addr.sin_addr ), ntohs( remote_addr.sin_port ) );
   else if( status == 0 )
     ROS_INFO( "Connection closed by peer" );
 

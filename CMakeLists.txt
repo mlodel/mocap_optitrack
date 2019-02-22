@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(mocap_optitrack)
 
-find_package(catkin REQUIRED COMPONENTS roscpp std_msgs geometry_msgs tf roslaunch)
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs geometry_msgs tf roslaunch message_generation)
 
 catkin_package(
   INCLUDE_DIRS include
-  CATKIN_DEPENDS roscpp
+  CATKIN_DEPENDS roscpp message_runtime
 )
 
 include_directories(include
@@ -16,12 +16,6 @@ add_subdirectory(src)
 
 install(DIRECTORY launch config
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-
-
-add_executable(pose_stamper_1 src/pose_stamper_1.cpp)
-target_link_libraries(pose_stamper_1 ${catkin_LIBRARIES})
-#add_executable(mocap_node src/mocap_node.cpp)
-#target_link_libraries(mocap_node ${catkin_LIBRARIES})
 
 # Check the validity of the supplied launch files.
 roslaunch_add_file_check(launch)

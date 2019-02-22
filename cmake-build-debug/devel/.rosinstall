@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/bdebrito/catkin_ws/src/mocap_optitrack/cmake-build-debug/devel/setup.sh
