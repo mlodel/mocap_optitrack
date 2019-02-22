@@ -7,7 +7,6 @@ rigid_bodies:
         pose: Robot_1/pose
         pose2d: Robot_1/ground_pose
         child_frame_id: base_link
-        #child_frame_id: base_link
         parent_frame_id: map_mocap
     '20':
         pose: mocap_obstacle1/pose
