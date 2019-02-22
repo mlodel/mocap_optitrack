@@ -36,62 +36,75 @@
  */
 
 /// \author <a href="mailto:graeve@ais.uni-bonn.de">Kathrin Gräve</a>
+///
+/// This class contains arrays of names corresponding to the rigid body ids
+/// of the three skeletons that are predefined by the Arena software 
 
-#ifndef __SOCKET_CLASS_H__
-#define __SOCKET_CLASS_H__
-
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <unistd.h>
-#include <string>
-#include <arpa/inet.h>
-#include <stdexcept>
-
-/// \brief Exception class thrown by socket classes in this file.
-class SocketException : public std::runtime_error
+/// \brief Rigid body names for the skeleton with toes
+char const * SKELETON_WITH_TOES[] =
 {
-  public:
-   
-    /// \brief Constructor
-    /// \param description Error message
-    SocketException ( std::string description ) : std::runtime_error( description ) {}
-    
-    ~SocketException () throw() {}
+  "",
+  "hip",
+  "ab",
+  "chest",
+  "neck",
+  "head",
+  "head_end",
+  "left_shoulder",
+  "left_upper_arm",
+  "left_fore_arm",
+  "left_hand",
+  "left_hand_end",
+  "right_shoulder",
+  "right_upper_arm",
+  "right_fore_arm",
+  "right_hand",
+  "right_hand_end",
+  "left_thigh",
+  "left_shin",
+  "left_foot",
+  "left_toe",
+  "left_toe_end",
+  "right_thigh",
+  "right_shin",
+  "right_foot",
+  "right_toe",
+  "right_toe_end"
 };
 
-/// \brief Allows to retrieve data from a UDP multicast group
-class UdpMulticastSocket
+/// Rigid body names for the skeleton without toes
+char const * SKELETON_WITHOUT_TOES[] =
 {
-  public:
-    
-    /// \brief Maximum number of bytse that can be read at a time
-    static const int MAXRECV = 3000;
-
-    /// Creates a socket and joins the multicast group with the given address
-    UdpMulticastSocket( const int local_port, const std::string multicast_ip = "224.0.0.1" );
-    
-    ///
-    ~UdpMulticastSocket();
-    
-    /// \brief Retrieve data from multicast group.
-    /// \return The number of bytes received or -1 if no data is available
-    ///
-    /// This call is non-blocking.
-    int recv();
-
-    /// \brief Returns a pointer to the internal buffer, holding the received data.
-    ///
-    /// The buffer size may be obtained from MAXRECV.
-    const char* getBuffer() { return &buf[0]; }
-
-  private:
-
-    int m_socket;
-    sockaddr_in m_local_addr;
-
-    char buf [ MAXRECV + 1 ];
+  "",
+  "hip",
+  "ab",
+  "chest",
+  "neck",
+  "head",
+  "head_end",
+  "left_shoulder",
+  "left_upper_arm",
+  "left_fore_arm",
+  "left_hand",
+  "left_hand_end",
+  "right_shoulder",
+  "right_upper_arm",
+  "right_fore_arm",
+  "right_hand",
+  "right_hand_end",
+  "left_thigh",
+  "left_shin",
+  "left_foot",
+  "left_foot_end",
+  "right_thigh",
+  "right_shin",
+  "right_foot",
+  "right_foot_end"
 };
 
-#endif/*__SOCKET_CLASS_H__*/
+/// Rigid body name for a custom rigid body
+char const * OBJECT[] =
+{
+	"",
+	"object"
+};
