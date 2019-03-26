@@ -5,8 +5,8 @@
 rigid_bodies:
     '1':
         pose: rigid_body_1/pose
-        pose2d: rigid_body_1/ground_pose
-        frame_id: rigid_body_1/base_link
+#    pose2d: rigid_body_1/ground_pose
+        frame_id: odom
 
    #Use this format to create each new rigid body
 
