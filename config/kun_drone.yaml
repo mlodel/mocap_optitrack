@@ -1,0 +1,11 @@
+#
+# Definition of all trackable objects
+# Identifier corresponds to Trackable ID set in Tracking Tools
+#
+rigid_bodies:
+    '1':
+        pose: kun_drone/pose
+        parent_frame_id: odom
+
+optitrack_config:
+       multicast_address: 224.0.0.1
